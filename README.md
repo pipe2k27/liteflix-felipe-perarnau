@@ -19,7 +19,11 @@ npm run dev
 
 ### Database
 
-This project uses sqlite. The database can be recreated from scratch with
+This project uses prisma & sqlite.
+
+You can view the database with
 ```
-sqlite3 ./database/movie.db < database/schema.sql
+npx prisma studio
 ```
+
+Documentation for Prisma is viewable at https://www.prisma.io/docs
