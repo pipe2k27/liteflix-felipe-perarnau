@@ -11,7 +11,8 @@ datasource db {
 }
 
 model Movie {
-  id        Int    @id @default(autoincrement())
-  name      String @unique
-  image_url String @unique
+  id           Int    @id @default(autoincrement())
+  name         String @unique
+  image_url    String @unique
+  vote_average Float  @default(0)
 }
