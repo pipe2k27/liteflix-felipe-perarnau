@@ -1,16 +1,7 @@
 ## Getting Started
 
-You will need to install sqlite3 to run this project:
-
-```
-  brew install sqlite3
-  #OR
-  npm install --build-from-source
-```
-
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
 ```
 
