@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-## Liteflix - Live Coding Challenge
+## Webflix - Live Coding Challenge
 
 ### UI Section
 In this challenge, you will implement the desktop main landing page showing "La Casa de Papel" at [Figma design](https://www.figma.com/design/8IrWHW2aUQZN6ILycX6ug7/Liteflix-Challenge?node-id=0-1&node-type=canvas).
