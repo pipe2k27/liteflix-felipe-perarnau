@@ -31,6 +31,11 @@ You will be using pure css (the `index.css` file).
 To handle the endpoint's images correctly, please refer to the developer documentation: https://developer.themoviedb.org/docs/image-basics
 
 
+### Evaluation
+- Communication: how fluidly you express ideas and communicate while coding.
+- Problem Solving: how you overcome obstacles consistently.
+- Code Fluency: how quickly, correctly and idiomatically you write code to fulfill requirements.
+
 #### Tips & Tricks
 - We want to see an implementation as pixel perfect as possible.
 - The project uses Next.js Pages & Prisma. Leveraging its specific features is available but not required
