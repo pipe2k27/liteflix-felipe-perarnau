@@ -1,8 +1,7 @@
 import "./index.css";
 import { Bebas_Neue } from "next/font/google";
 import type { Movie } from "@prisma/client";
-
-// Most of the
+import { FEATURED_FILM } from "@src/lib/endpoints";
 
 const bebas = Bebas_Neue({
   weight: "400",
@@ -25,10 +24,10 @@ export default function Home({
 }
 
 export async function getServerSideProps() {
-  const featured = await fetch("api/featured");
-  const popular = await fetch("api/featured");
+  const res = await fetch(FEATURED_FILM);
+  const featured = await res.json();
 
   return {
-    props: { featured, popular },
+    props: { featured },
   };
 }
