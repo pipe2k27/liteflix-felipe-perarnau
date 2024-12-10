@@ -1,6 +1,8 @@
 import { prisma } from "@src/lib/prisma";
 import type { Movie } from "@prisma/client";
 
+// This allows us to visualize movies in the database
+
 export default function Movies({ movies }: { movies: Movie[] }) {
   return (
     <div>

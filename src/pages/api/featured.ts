@@ -4,13 +4,14 @@ import type { NextApiRequest, NextApiResponse } from "next";
 const FEATURED_FILM =
   "https://api.themoviedb.org/3/movie/now_playing?api_key=6f26fd536dd6192ec8a57e94141f8b20";
 
-type Data = {
+type Movie = {
   name: string;
 };
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>,
+  res: NextApiResponse<Movie>,
 ) {
-  res.status(200).json({ name: "John Doe" });
+  // Your api fetching code here
+  res.status(200).json({ name: "Moana" });
 }

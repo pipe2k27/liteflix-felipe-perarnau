@@ -13,23 +13,19 @@ npm run dev
 
 ## Webflix - Live Coding Challenge
 
+### Featured Films
 
-### API
-To fetch the current movies in the apis, you will need to implement the api endpoints `src/pages/api/featured` & `src/pages/api/popular` to populate the landing page.
-These endpoints include a remote-url to load movies.
-
-1. Load information from the remote source
-2. Render basic html with this information
-3. Store all fetched movie records into the database. (Prisma & Sqlite)
-
-### UI Section
-In this challenge, you will implement the desktopversion of the main landing page showing "La Casa de Papel" at [Figma design](https://www.figma.com/design/8IrWHW2aUQZN6ILycX6ug7/Liteflix-Challenge?node-id=0-1&node-type=canvas).
-There's no navigation or behaviors to implement other than loading and rendering the landing page as-is.
-
-You will be using pure css (the `index.css` file).
+1. Fetch the featured film from the remote api at `src/pages/api/featured`
+2. Store the featured film on the database every time we fetch it. (`prisma/schema.prisma`)
+3. Render the featured film on the landing page and implement the basic [Figma UI](https://www.figma.com/design/8IrWHW2aUQZN6ILycX6ug7/Liteflix-Challenge?node-id=0-1&node-type=canvas)
 
 To handle the endpoint's images correctly, please refer to the developer documentation: https://developer.themoviedb.org/docs/image-basics
 
+### Popular Films
+
+1. Fetch the popular films from the remote api at `src/pages/api/popular`
+2. Store the popular films on the database every time we fetch it
+3. Render the popular films on the landing page and implement the basic [Figma UI](https://www.figma.com/design/8IrWHW2aUQZN6ILycX6ug7/Liteflix-Challenge?node-id=0-1&node-type=canvas)
 
 ### Evaluation
 - Communication: how fluidly you express ideas and communicate while coding.
