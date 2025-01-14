@@ -13,6 +13,15 @@ const bebas = Bebas_Neue({
 });
 
 export default function Movies({ movies }: { movies: Movie[] }) {
+  if (!movies || movies.length < 1) {
+    return (
+      <div>
+        Error al cargar las peliculas. Recargue la pagina o intentelo nuevamente
+        mas tarde
+      </div>
+    );
+  }
+
   return (
     <div className={`${bebas.className}`}>
       <div className="wrapper min-h-[100vh] h-fit">
@@ -81,29 +90,47 @@ export default function Movies({ movies }: { movies: Movie[] }) {
 }
 
 export async function getServerSideProps() {
-  let movies = await prisma.movie.findMany();
-  if (!movies || movies.length < 1) {
-    const res = await fetch(FEATURED_FILM);
-    const data = await res.json();
+  let movies: Movie[] = [];
 
-    // console.log(data.results);
-
-    const movieArray: any[] = [];
-
-    if (data.results && data.results.length)
-      data.results.forEach((movie: any, index: number) => {
-        movieArray.push({
-          name: movie.title,
-          image_url: movie.backdrop_path,
-          vote_average: movie.vote_average,
-        });
-      });
-
-    if (movieArray.length) {
-      await prisma.movie.createMany({ data: movieArray });
-    }
-
+  try {
     movies = await prisma.movie.findMany();
+  } catch (error) {
+    console.error("Error fetching movies from the database:", error);
+  }
+
+  if (!movies || movies.length < 1) {
+    try {
+      const res = await fetch(FEATURED_FILM);
+      const data = await res.json();
+
+      const movieArray: any[] = [];
+
+      if (data.results && data.results.length) {
+        data.results.forEach((movie: any) => {
+          movieArray.push({
+            name: movie.title,
+            image_url: movie.backdrop_path,
+            vote_average: movie.vote_average,
+          });
+        });
+      }
+
+      if (movieArray.length) {
+        try {
+          await prisma.movie.createMany({ data: movieArray });
+        } catch (error) {
+          console.error("Error", error);
+        }
+      }
+
+      try {
+        movies = await prisma.movie.findMany();
+      } catch (error) {
+        console.error("Error", error);
+      }
+    } catch (error) {
+      console.error("Error", error);
+    }
   }
 
   return {
